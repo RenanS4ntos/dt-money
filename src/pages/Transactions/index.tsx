@@ -1,7 +1,11 @@
-import { Header } from "../../components/Header";
-import { Summary } from "../../components/Summary";
-import { SearchForm } from "./components/SearchForm";
-import { PriceHighLight, TransactionsContainer, TransactionsTable } from "./styles";
+import { Header } from '../../components/Header'
+import { Summary } from '../../components/Summary'
+import { SearchForm } from './components/SearchForm'
+import {
+  PriceHighLight,
+  TransactionsContainer,
+  TransactionsTable,
+} from './styles'
 
 export function Transactions() {
   return (
@@ -16,9 +20,7 @@ export function Transactions() {
             <tr>
               <td width="50%">Desenvolvimento de site</td>
               <td>
-                <PriceHighLight variant="income">
-                  R$ 12.000,00
-                </PriceHighLight>
+                <PriceHighLight variant="income">R$ 12.000,00</PriceHighLight>
               </td>
               <td>Venda</td>
               <td>13/04/2022</td>
@@ -26,9 +28,7 @@ export function Transactions() {
             <tr>
               <td width="50%">Pix</td>
               <td>
-                <PriceHighLight variant="income">
-                  R$ 15,00
-                </PriceHighLight>
+                <PriceHighLight variant="income">R$ 15,00</PriceHighLight>
               </td>
               <td>Transação</td>
               <td>13/04/2022</td>
@@ -36,9 +36,7 @@ export function Transactions() {
             <tr>
               <td width="50%">Alimentação</td>
               <td>
-                <PriceHighLight variant="outcome">
-                  - R$ 59,00
-                </PriceHighLight>
+                <PriceHighLight variant="outcome">- R$ 59,00</PriceHighLight>
               </td>
               <td>Compra</td>
               <td>10/04/2022</td>
