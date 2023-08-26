@@ -1,8 +1,8 @@
 {
-  "transactions" : [
+  "transactions": [
     {
       "id": 1,
-      "descriptions": "Desenvolvimento de Site",
+      "description": "Desenvolvimento de Site",
       "type": "income",
       "category": "Venda",
       "price": 14000,
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "descriptions": "Hamburger",
+      "description": "Hamburger",
       "type": "outcome",
       "category": "Alimentação",
       "price": 50,
@@ -18,11 +18,35 @@
     },
     {
       "id": 3,
-      "descriptions": "Ignite Rocketseat",
+      "description": "Ignite Rocketseat",
       "type": "outcome",
       "category": "Educação",
       "price": 1980,
       "createdAt": "2023-08-19T22:30:45.249Z"
+    },
+    {
+      "category": "Compra",
+      "description": "Compra de celular",
+      "price": 3000,
+      "type": "outcome",
+      "createdAt": "2023-08-26T14:32:14.991Z",
+      "id": 4
+    },
+    {
+      "category": "Venda",
+      "description": "Venda de pamonha",
+      "price": 15,
+      "type": "income",
+      "createdAt": "2023-08-26T14:42:10.517Z",
+      "id": 5
+    },
+    {
+      "category": "Alimentação",
+      "description": "Pastel",
+      "price": 15,
+      "type": "outcome",
+      "createdAt": "2023-08-26T14:45:21.909Z",
+      "id": 6
     }
   ]
 }
