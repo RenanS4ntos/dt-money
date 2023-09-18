@@ -47,6 +47,14 @@
       "type": "outcome",
       "createdAt": "2023-08-26T14:45:21.909Z",
       "id": 6
+    },
+    {
+      "category": "teste",
+      "description": "teste",
+      "price": 1000,
+      "type": "income",
+      "createdAt": "2023-09-07T22:43:13.710Z",
+      "id": 7
     }
   ]
 }

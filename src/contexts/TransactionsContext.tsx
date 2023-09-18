@@ -1,11 +1,6 @@
-import {
-  ReactNode,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from 'react'
+import { ReactNode, useCallback, useEffect, useState } from 'react'
 import { api } from '../lib/axios'
+import { createContext } from 'use-context-selector'
 
 interface TransactionsContextProps {
   children: ReactNode
@@ -33,12 +28,12 @@ interface TransactionsContextType {
   createTransaction: (data: CreateTransactionProps) => Promise<void>
 }
 
-const TransactionsContext = createContext({} as TransactionsContextType)
+export const TransactionsContext = createContext({} as TransactionsContextType)
 
 export function TransactionsProvider({ children }: TransactionsContextProps) {
   const [transactions, setTransactions] = useState<TransactionsProps[]>([])
 
-  async function fetchTransactions(query?: string) {
+  const fetchTransactions = useCallback(async (query?: string) => {
     const response = await api.get('/transactions', {
       params: {
         q: query,
@@ -46,25 +41,28 @@ export function TransactionsProvider({ children }: TransactionsContextProps) {
     })
 
     setTransactions(response.data)
-  }
+  }, [])
 
-  async function createTransaction(data: CreateTransactionProps) {
-    const { category, description, price, type } = data
+  const createTransaction = useCallback(
+    async (data: CreateTransactionProps) => {
+      const { category, description, price, type } = data
 
-    const response = await api.post('/transactions', {
-      category,
-      description,
-      price,
-      type,
-      createdAt: new Date(),
-    })
+      const response = await api.post('/transactions', {
+        category,
+        description,
+        price,
+        type,
+        createdAt: new Date(),
+      })
 
-    setTransactions((state) => [response.data, ...state])
-  }
+      setTransactions((state) => [response.data, ...state])
+    },
+    [],
+  )
 
   useEffect(() => {
     fetchTransactions()
-  }, [])
+  }, [fetchTransactions])
 
   return (
     <TransactionsContext.Provider
@@ -73,10 +71,4 @@ export function TransactionsProvider({ children }: TransactionsContextProps) {
       {children}
     </TransactionsContext.Provider>
   )
-}
-
-export function useTransactions() {
-  const context = useContext(TransactionsContext)
-
-  return context
 }
